@@ -29,7 +29,7 @@ jobs:
           xcodebuild build-for-testing \
             -project TodoList.xcodeproj \
             -scheme TodoList \
-            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
             -derivedDataPath ./DerivedData \
             CODE_SIGNING_ALLOWED=NO
 
@@ -39,7 +39,7 @@ jobs:
           xcodebuild test-without-building \
             -project TodoList.xcodeproj \
             -scheme TodoList \
-            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
             -derivedDataPath ./DerivedData \
             CODE_SIGNING_ALLOWED=NO
 
@@ -47,8 +47,9 @@ jobs:
   security-scan:
     name: CodeQL Security Scan
     runs-on: macos-latest
-
+  
     permissions:
+      actions: read
       contents: read
       security-events: write
 
